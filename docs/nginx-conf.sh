@@ -5,7 +5,7 @@ upstream order_service {
 }
 
 server {
-    listen 4004;
+    listen 80;
     location / {
         proxy_pass http://order_service;
         proxy_set_header Host $host;
