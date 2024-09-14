@@ -3,7 +3,7 @@ services:
   sinatra-service:
     build:
       context: .
-      dockerfile: Dockerfile.sinatra
+      dockerfile: ./users/Dockerfile
     ports:
       - "4567:4567"
     networks:
@@ -12,7 +12,7 @@ services:
   fastapi-service:
     build:
       context: .
-      dockerfile: Dockerfile.fastapi
+      dockerfile: ./orders/Dockerfile
     ports:
       - "8000:8000"
     depends_on:
