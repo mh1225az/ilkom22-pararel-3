@@ -1,18 +1,11 @@
-# Gunakan image Ubuntu dengan Python
-FROM python:3.9-slim
+FROM python:3.10
 
-# Setel direktori kerja di dalam container
 WORKDIR /app
 
-# Salin file requirements.txt (jika ada) dan install dependencies
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install fastapi uvicorn httpx
 
-# Salin semua file aplikasi ke dalam container
-COPY . .
+COPY main.py /app/main.py
 
-# Expose port yang akan digunakan aplikasi
 EXPOSE 8000
 
-# Jalankan aplikasi dengan Uvicorn
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
