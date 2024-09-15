@@ -2,7 +2,7 @@ FROM ruby:3.1
 
 WORKDIR /app
 
-RUN gem install sinatra sqlite3
+RUN gem install sinatra sqlite3 rackup
 
 COPY app.rb /app/app.rb
 
