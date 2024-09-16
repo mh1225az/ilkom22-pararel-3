@@ -2,10 +2,17 @@ FROM ruby:3.1
 
 WORKDIR /app
 
-RUN gem install sinatra sqlite3 rackup
+# Salin Gemfile dan Gemfile.lock terlebih dahulu agar dependency bisa di-cache
+COPY Gemfile Gemfile.lock ./
 
-COPY app.rb /app/app.rb
+# Instalasi gem menggunakan bundler
+RUN gem install bundler && bundle install
 
+# Salin sisa file aplikasi
+COPY . .
+
+# Ekspos port
 EXPOSE 4567
 
-CMD ["ruby", "app.rb"]
+# Jalankan aplikasi menggunakan rackup
+CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "--port", "4567"]
