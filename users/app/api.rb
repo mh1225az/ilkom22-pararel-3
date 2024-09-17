@@ -1,25 +1,25 @@
 require 'sinatra'
+require 'sequel'
 require 'sqlite3'
 require 'json'
 
 module UserService
   class API < Sinatra::Base
     # Initialize SQLite database
-    DB = SQLite3::Database.new "users.db"
-    DB.execute <<-SQL
-      CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        email TEXT
-      );
-    SQL
+    DB = Sequel.sqlite("./db/users.db")
+
+    
 
     # Add a user to the database
     post '/users' do
       data = JSON.parse(request.body.read)
       name = data['name']
       email = data['email']
-      DB.execute("INSERT INTO users (name, email) VALUES (?, ?)", [name, email])
+      res = DB.execute("INSERT INTO users (name, email) VALUES (?, ?)", [name, email])
+      if res
+      else
+      end
+
       status 201
     end
 
