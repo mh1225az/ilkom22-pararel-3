@@ -1,5 +1,5 @@
 services:
-  sinatra-service:
+  user-service:
     build:
       context: ./users
       dockerfile: Dockerfile
@@ -8,14 +8,14 @@ services:
     networks:
       - my-network
 
-  fastapi-service:
+  order-service:
     build:
       context: ./orders
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
     depends_on:
-      - sinatra-service
+      - user-service
     networks:
       - my-network
 
