@@ -1,2 +1,2 @@
 require_relative 'app/api'
-run UserService::API.new
+run OrderService::API.new
