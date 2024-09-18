@@ -11,8 +11,11 @@ RUN gem install bundler && bundle install
 # Salin sisa file aplikasi
 COPY . .
 
+# Set environment variable USER_URL
+ENV USER_URL=http://user-service:4567
+
 # Ekspos port
-EXPOSE 4567
+EXPOSE 8000
 
 # Jalankan aplikasi menggunakan rackup
-CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "--port", "4567"]
+CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "--port", "8000"]

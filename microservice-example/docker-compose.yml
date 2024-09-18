@@ -3,8 +3,6 @@ services:
     build:
       context: ./users
       dockerfile: Dockerfile
-    environtment:
-      - USER_URL=http://user-service:4567
     ports:
       - "4567:4567"
     networks:
@@ -13,7 +11,7 @@ services:
   order-service:
     build:
       context: ./orders
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile 
     ports:
       - "8000:8000"
     depends_on:
