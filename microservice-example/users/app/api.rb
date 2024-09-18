@@ -30,10 +30,10 @@ module UserService
     # Get user by ID
     get '/users/:id' do
       id = params['id']
-      user = DB.execute("SELECT * FROM users WHERE id = ?", id).first
+      user = DB[:users].where(id: id).first
       if user
         content_type :json
-        { id: user[0], name: user[1], email: user[2] }.to_json
+        { id: user[:id], name: user[:name], email: user[:email], created_at: user[:created_at] }.to_json
       else
         status 404
         { error: "User not found" }.to_json

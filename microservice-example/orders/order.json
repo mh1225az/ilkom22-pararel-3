@@ -2,19 +2,6 @@
     "order_id": 12345,
     "order_date": "2024-09-17T14:00:00Z",
     "status": "shipped",
-    "customer": {
-      "customer_id": 98765,
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "+628123456789",
-      "shipping_address": {
-        "street": "Jl. Merdeka No. 123",
-        "city": "Jakarta",
-        "state": "DKI Jakarta",
-        "postal_code": "10110",
-        "country": "Indonesia"
-      }
-    },
     "items": [
       {
         "product_id": 1111,

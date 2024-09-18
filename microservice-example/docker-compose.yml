@@ -3,6 +3,8 @@ services:
     build:
       context: ./users
       dockerfile: Dockerfile
+    environtment:
+      - USER_URL=http://user-service:4567/users
     ports:
       - "4567:4567"
     networks:

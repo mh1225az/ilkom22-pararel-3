@@ -5,17 +5,19 @@ import json
 app = FastAPI()
 
 # Base URL for Sinatra service
-SINATRA_URL = "http://sinatra-service:4567/users"
-
+USER_URL = "http://user-service:4567/users"
+async with httpx.AsyncClient() as client:
+    response = await client.get(f"{USER_URL}/{user_id}")
+    
 
 @app.get("/order/{user_id}")
 async def get_order(user_id: int):
     async with httpx.AsyncClient() as client:
-        response = await client.get(f"{SINATRA_URL}/{user_id}")
+        response = await client.get(f"{USER_URL}/{user_id}")
         # Membaca file order.json
         order_data = ''
         with open('order.json', 'r') as file:
-            order_data = json.load(file)
+            order_data = json.load('order.json')
 
         if response.status_code == 200:
             user_data = response.json()
