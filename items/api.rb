@@ -7,6 +7,8 @@ datamahasiswa = [
   { id: 1, name: "Ilham Arief", nim: "F1G122025" },
   { id: 2, name: "Muh. Faizal", nim: "F1G122024" },
   { id: 3, name: "Bintang", nim: "F1G122026" },
+  { id: 4, name: "Fadil Mursyid", nim: "F1G122017" },
+  
 ]
 
 
@@ -18,6 +20,11 @@ end
 get '/posts' do
   content_type :json
   datamahasiswa.to_json
+end
+
+get '/posts1' do
+  content_type :json
+  JSON.pretty_generate(datamahasiswa)
 end
 
 get '/posts/:id' do
