@@ -4,19 +4,19 @@ require 'sqlite3'
 require 'json'
 require 'time'
 
-module UserService
+module CustomerService
   class API < Sinatra::Base
     # Initialize SQLite database
-    DB = Sequel.sqlite("./db/users.db")
+    DB = Sequel.sqlite("./db/customers.db")
 
     # Add a user to the database
-    post '/users' do
+    post '/customers' do
       user_param = JSON.parse(request.body.read)
       user_param['created_at'] = Time.now
       user_param['updated_at'] = Time.now
 
-      res = DB[:users].insert(user_param)
-      id = DB[:users].max(:id)
+      res = DB[:customers].insert(user_param)
+      id = DB[:customers].max(:id)
 
       if res
         status 201
@@ -28,15 +28,15 @@ module UserService
     end
 
     # Get user by ID
-    get '/users/:id' do
+    get '/customers/:id' do
       id = params['id']
-      user = DB[:users].where(id: id).first
+      user = DB[:customers].where(id: id).first
       if user
         content_type :json
         { id: user[:id], name: user[:name], email: user[:email], created_at: user[:created_at] }.to_json
       else
         status 404
-        { error: "User not found" }.to_json
+        { error: "Customer not found" }.to_json
       end
     end
 
