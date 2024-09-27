@@ -3,7 +3,7 @@ import time
 
 # Fungsi yang akan dijalankan dalam thread
 def worker(thread_name):
-    print(f'Thread {thread_name} mulai bekerja.')
+    print(f'Thread {thread_name} mulai bekerja, read 1 million row from DB {thread_name}')
     time.sleep(2)  # Simulasi pekerjaan yang memakan waktu
     print(f'Thread {thread_name} selesai.')
 
