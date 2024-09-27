@@ -1,10 +1,10 @@
 import React from 'react';
-import StudentPerformanceDashboard from './StudentPerformanceDashboard';
+import OnlyCommit from './OnlyCommit';
 
 function App() {
   return (
     <div className="App">
-      <StudentPerformanceDashboard />
+      <OnlyCommit />
     </div>
   );
 }

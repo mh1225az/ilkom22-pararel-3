@@ -34,46 +34,55 @@ const EnhancedStudentPerformanceDashboard = () => {
     );
 
     return (
+    //     <div className="container mx-auto">
+    //   <h1 className="text-3xl font-bold text-center text-blue-500">My Awesome App</h1>
+    //   <img className="h-20 w-20 mx-auto rounded-full border-2 border-blue-500" src="/images/your-logo.png" alt="Logo" />
+    //   {/* ... other content */}
+    // </div>
         <div className="p-6 max-w-6xl mx-auto">
-        <h1 className="text-2xl font-bold mb-6">Enhanced Student Performance Dashboard</h1>
-        <div className="flex flex-wrap gap-4 mb-6">
-            <MetricCard title="Total Commits" value={totalCommits} />
-            <MetricCard title="Average Commits" value={averageCommits} />
-            <MetricCard title="Top Performer" value={`${topPerformer.name} (${topPerformer.commits} commits)`} />
-            <MetricCard title="Top Contributor" value={`${topContributor.name} (${topContributor.linesAdded - topContributor.linesDeleted} net lines)`} />
-        </div>
-        
-        <div className="bg-white shadow rounded-lg p-4 mb-6">
-            <h2 className="text-xl font-semibold mb-4">Pull Requests and Issues Closed</h2>
-            <div className="h-80">
-            <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="pullRequests" fill="#8884d8" name="Pull Requests" />
-                <Bar dataKey="issuesClosed" fill="#82ca9d" name="Issues Closed" />
-                </BarChart>
-            </ResponsiveContainer>
-            </div>
-        </div>
+        {/* <img src="./Logo_Universitas_Halu_Oleo.png" alt=""> */}
 
-        <div className="bg-white shadow rounded-lg p-4">
-            <h2 className="text-xl font-semibold mb-4">Code Contribution</h2>
-            <div className="h-80">
-            <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="linesAdded" stroke="#8884d8" name="Lines Added" />
-                <Line type="monotone" dataKey="linesDeleted" stroke="#82ca9d" name="Lines Deleted" />
-                </LineChart>
-            </ResponsiveContainer>
+            {/* <h1 className="text-2xl font-bold mb-6">UHO Student Performance Dashboard</h1> */}
+            <h1 className="text-3xl font-bold text-center text-blue-500">UHO Student Performance Dashboard</h1>
+            <img className="h-20 w-20 mx-auto rounded-full border-2 border-blue-500" src="/Logo_Universitas_Halu_Oleo.png" alt="Logo" />
+            <div className="flex flex-wrap gap-4 mb-6">
+                <MetricCard title="Total Commits" value={totalCommits} />
+                <MetricCard title="Average Commits" value={averageCommits} />
+                <MetricCard title="Top Performer" value={`${topPerformer.name} (${topPerformer.commits} commits)`} />
+                <MetricCard title="Top Contributor" value={`${topContributor.name} (${topContributor.linesAdded - topContributor.linesDeleted} net lines)`} />
             </div>
-        </div>
+        
+            <div className="bg-white shadow rounded-lg p-4 mb-6">
+                <h2 className="text-xl font-semibold mb-4">Pull Requests and Issues Closed</h2>
+                <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={data}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Bar dataKey="pullRequests" fill="#8884d8" name="Pull Requests" />
+                    <Bar dataKey="issuesClosed" fill="#82ca9d" name="Issues Closed" />
+                    </BarChart>
+                </ResponsiveContainer>
+                </div>
+            </div>
+
+            <div className="bg-white shadow rounded-lg p-4">
+                <h2 className="text-xl font-semibold mb-4">Code Contribution</h2>
+                <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={data}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="linesAdded" stroke="#8884d8" name="Lines Added" />
+                    <Line type="monotone" dataKey="linesDeleted" stroke="#82ca9d" name="Lines Deleted" />
+                    </LineChart>
+                </ResponsiveContainer>
+                </div>
+            </div>
         </div>
     );
 };
