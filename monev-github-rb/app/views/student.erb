@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UHO Student Performance Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="p-6 max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold text-center text-blue-500 mb-4">UHO Student Performance Dashboard</h1>
+        <img class="h-20 w-20 mx-auto rounded-full border-2 border-blue-500 mb-6" src="/images/Logo_Universitas_Halu_Oleo.png" alt="UHO Logo">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white shadow rounded-lg p-4 flex-1 min-w-[200px]">
+                <h3 class="font-semibold mb-2">Total Commits </h3>
+                <p class="text-2xl font-bold"><%= @total_commits %></p>
+            </div>
+            <div class="bg-white shadow rounded-lg p-4 flex-1 min-w-[200px]">
+                <h3 class="font-semibold mb-2">Average Commits </h3>
+                <p class="text-2xl font-bold"><%= @average_commits %></p>
+            </div>
+            <div class="bg-white shadow rounded-lg p-4 flex-1 min-w-[200px]">
+                <h3 class="font-semibold mb-2">Top Performer </h3> 
+                <p class="text-2xl font-bold"><%= "#{@top_performer[:name]} (#{@top_performer[:commits]})" %></p> 
+            </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg p-4 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Performance Distribution</h2>
+            <div class="h-80">
+                <canvas id="scatterChart"></canvas>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+                <p>X-Axis: Number of Commits</p>
+                <p>Y-Axis: Lines Added</p>
+            </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg p-4 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Number of Commits</h2>
+            <div class="h-80">
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg p-4">
+            <h2 class="text-xl font-semibold mb-4">Code Contribution</h2>
+            <div class="h-80">
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Chart(document.getElementById('scatterChart'), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Students',
+                    data: <%= @students.map { |s| { x: s[:commits], y: s[:lines_added], name: s[:name] } }.to_json %>,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)'
+                }]
+            },
+            options: {
+                scales: {
+                    x: { title: { display: true, text: 'Commits' } },
+                    y: { title: { display: true, text: 'Lines Added' } }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.raw.name || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += `(${context.parsed.x}, ${context.parsed.y})`;
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+   
+</body>
+</html>

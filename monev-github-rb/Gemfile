@@ -25,3 +25,5 @@ gem "dotenv", "~> 3.1"
 gem "csv", "~> 3.3"
 
 gem "sinatra-cors", "~> 1.2"
+
+gem "sinatra-static", "~> 0.1.1"
