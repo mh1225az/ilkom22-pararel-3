@@ -18,7 +18,7 @@
             </div>
             <div class="bg-white shadow rounded-lg p-4 flex-1 min-w-[200px]">
                 <h3 class="font-semibold mb-2">Average Commits </h3>
-                <p class="text-2xl font-bold"><%= @average_commits %></p>
+                <p class="text-2xl font-bold"><%= @average_commits.to_i %></p>
             </div>
             <div class="bg-white shadow rounded-lg p-4 flex-1 min-w-[200px]">
                 <h3 class="font-semibold mb-2">Top Performer </h3> 
@@ -31,17 +31,6 @@
             <div class="h-80">
                 <canvas id="scatterChart"></canvas>
             </div>
-            <div class="mt-4 text-sm text-gray-600">
-                <p>X-Axis: Number of Commits</p>
-                <p>Y-Axis: Lines Added</p>
-            </div>
-        </div>
-
-        <div class="bg-white shadow rounded-lg p-4 mb-6">
-            <h2 class="text-xl font-semibold mb-4">Number of Commits</h2>
-            <div class="h-80">
-                <canvas id="barChart"></canvas>
-            </div>
         </div>
 
         <div class="bg-white shadow rounded-lg p-4">
@@ -52,6 +41,7 @@
         </div>
     </div>
     <script>
+        // bar of number of commits & added line
         new Chart(document.getElementById('scatterChart'), {
             type: 'scatter',
             data: {
@@ -79,6 +69,30 @@
                             }
                         }
                     }
+                }
+            }
+        });
+         
+         // Line Chart of contribution
+        new Chart(document.getElementById('lineChart'), {
+            type: 'line',
+            data: {
+                labels: <%= @students.map { |s| s[:name]}.to_json %>,
+                datasets: [{
+                    label: 'Lines Added',
+                    data: <%= @students.map { |s| s[:lines_added]}.to_json %>,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    fill: false
+                }, {
+                    label: 'Lines Deleted',
+                    data: <%= @students.map { |s| s[:lines_deleted]}.to_json %>,
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Lines of Code' } }
                 }
             }
         });
