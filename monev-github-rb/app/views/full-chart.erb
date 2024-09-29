@@ -17,23 +17,7 @@
             }
         });
 
-        // Bar Chart
-        new Chart(document.getElementById('barChart'), {
-            type: 'bar',
-            data: {
-                labels: <%= @students.map(&:name).to_json %>,
-                datasets: [{
-                    label: 'Commits',
-                    data: <%= @students.map(&:commits).to_json %>,
-                    backgroundColor: 'rgba(75, 192, 192, 0.6)'
-                }]
-            },
-            options: {
-                scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Number of Commits' } }
-                }
-            }
-        });
+       
 
         // Line Chart
         new Chart(document.getElementById('lineChart'), {
