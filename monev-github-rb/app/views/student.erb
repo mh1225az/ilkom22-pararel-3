@@ -25,7 +25,12 @@
                 <p class="text-2xl font-bold"><%= "#{@top_performer[:name]} (#{@top_performer[:commits]})" %></p> 
             </div>
         </div>
-
+        <div class="bg-white shadow rounded-lg p-4 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Commit Distribution</h2>
+            <div class="h-80">
+                <canvas id="commitChart"></canvas>
+            </div>
+        </div>
         <div class="bg-white shadow rounded-lg p-4 mb-6">
             <h2 class="text-xl font-semibold mb-4">Performance Distribution</h2>
             <div class="h-80">
@@ -41,20 +46,52 @@
         </div>
     </div>
     <script>
-        // bar of number of commits & added line
-        new Chart(document.getElementById('scatterChart'), {
+        // scatter of number of commits & added line
+        new Chart(document.getElementById('commitChart'), {
             type: 'scatter',
             data: {
                 datasets: [{
                     label: 'Students',
-                    data: <%= @students.map { |s| { x: s[:commits], y: s[:lines_added], name: s[:name] } }.to_json %>,
+                    data: <%= @students.map { |s| { y: s[:commits], x: s[:id], name: s[:name] } }.to_json %>,
                     backgroundColor: 'rgba(75, 192, 192, 0.6)'
                 }]
             },
             options: {
                 scales: {
-                    x: { title: { display: true, text: 'Commits' } },
-                    y: { title: { display: true, text: 'Lines Added' } }
+                    y: { title: { display: true, text: 'Commits' } },
+                    x: { title: { display: true, text: 'Student ID' } }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.raw.name || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += `(${context.parsed.x}, ${context.parsed.y})`;
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+         
+        // scatter of number of commits & added line
+        new Chart(document.getElementById('scatterChart'), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Students',
+                    data: <%= @students.map { |s| { y: s[:commits], x: s[:lines_added], name: s[:name] } }.to_json %>,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)'
+                }]
+            },
+            options: {
+                scales: {
+                    x: { title: { display: true, text: 'Lines Added' } },
+                    y: { title: { display: true, text: 'Commits' } }
                 },
                 plugins: {
                     tooltip: {

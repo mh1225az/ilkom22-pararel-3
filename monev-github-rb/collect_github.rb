@@ -56,12 +56,12 @@ repos.map do |rp|
   stats = collector.collect_stats(rp, account_gits)
 
   stats.each do |account, user_stats|
-    puts "Stats for #{account}:"
-    puts "  Commits: #{user_stats[:commits]}"
-    puts "  Lines added: #{user_stats[:additions]}"
-    puts "  Lines deleted: #{user_stats[:deletions]}"
-    puts ""
+    # puts "  Commits: #{user_stats[:commits]}"
+    # puts "  Lines added: #{user_stats[:additions]}"
+    # puts "  Lines deleted: #{user_stats[:deletions]}"
+    DB[:students].where(account_git: account).update(commits: user_stats[:commits],lines_added: user_stats[:additions],lines_deleted:user_stats[:deletions])
+
+    puts "updating data for #{account}, stats: (#{user_stats}})"    
+
   end  
 end
-
-# posts.where(Sequel[:stamp] < Date.today - 7).update(state: 'archived')
