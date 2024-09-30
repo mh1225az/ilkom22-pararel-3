@@ -27,3 +27,11 @@ gem "csv", "~> 3.3"
 gem "sinatra-cors", "~> 1.2"
 
 gem "sinatra-static", "~> 0.1.1"
+
+gem "octokit", "~> 9.1"
+
+gem "faraday", "~> 2.12"
+
+gem "faraday-retry", "~> 2.2"
+
+gem "faraday-multipart", "~> 1.0"

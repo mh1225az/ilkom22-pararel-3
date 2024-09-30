@@ -5,6 +5,7 @@ Sequel.migration do
           String :nim
           String :name
           String :account_git
+          String :git_repo
           Integer :commits
           Integer :lines_added
           Integer :lines_deleted

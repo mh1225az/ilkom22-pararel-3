@@ -7,8 +7,7 @@ csv_file = './data/students.csv'
 # sqlite_db = 'your_sqlite_db.db'
 
 # Open the CSV file
-csv_data = CSV.read(csv_file)
-
+csv_data = CSV.read(csv_file,col_sep: ';')
 # Extract column names (header row)
 column_names = csv_data.shift
 
