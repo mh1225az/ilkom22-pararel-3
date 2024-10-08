@@ -9,9 +9,9 @@ module StudentService
         
         get '/students' do
             students = [
-                {"ID" => "F1G122033","name" => 'Vina' },
-                {"ID" => "F1G122031","name" => 'Sitti Nur Aisya' },
-                {"ID" => "F1G122049","name" => 'Fitrah Rahmawati' },
+                {"ID" => "F1G122053","name" => 'Mitra' },
+                {"ID" => "F1G1220","name" => 'Jaya' },
+                {"ID" => "F1G1220","name" => 'arya' },
             ]
             content_type :json
             {'success' => true, 'data' => students}.to_json
