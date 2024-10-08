@@ -6,7 +6,7 @@ def tampilkan_pertanyaan(pertanyaan, pilihan):
 def tampilkan_profil(nama_pemain, senjata, lokasi, kubu):
     print("\n=== Profil Anda ===")
     print(f"Nama: {nama_pemain}")
-    print(f"Senjata yang dipilih: {senjata}")
+    print(f"Senjata yanhhhg dipilih: {senjata}")
     print(f"Lokasi pertempuran: {lokasi}")
     print(f"Kubu: {kubu}")
     print("===================\n")
