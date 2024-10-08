@@ -14,7 +14,7 @@ def tampilkan_profil(nama_pemain, senjata, lokasi, kubu):
 def main():
     # Meminta pemain untuk memasukkan nama
     nama_pemain = input("Masukkan nama kamu: ")
-    print(f"Halo, {nama_pemain}! Selamat datang di permainan tanya jawab.")
+    print(f"Halo, {nama_pemain}! Selamat datang di permainan tanya SIMULASI PERANG.")
 
     # Daftar pertanyaan, pilihan jawaban, dan jawaban benar
     daftar_pertanyaan = [
