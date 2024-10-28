@@ -18,6 +18,7 @@ const Login = () => {
                                 <label >Password</label>
                                 <input type="password" placeholder="Password" className="form-control" />
                             </div>
+                            <button style={{marginTop: "20px"}}>Submit</button>
                         </div>
                    </div>
               </div>  
