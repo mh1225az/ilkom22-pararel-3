@@ -10,7 +10,7 @@ const Login = () => {
                    <div className="card p-4">
                         <div className="card-body">
                             <div className="form-group">
-                                <label>Username</label>
+                                <label>User name</label>
                                 <input type="text" placeholder="Username" className="form-control" />
                             </div>
 
