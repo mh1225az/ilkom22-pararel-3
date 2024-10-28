@@ -5,7 +5,7 @@ import "./style/LandingPage.css"
 function App() {
   return (
     <div>
-      <div className="myBG">
+      <div  className="myBG">
       <Navigationbar />
         </div>
       </div>
