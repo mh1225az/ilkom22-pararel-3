@@ -1,4 +1,5 @@
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 const Navigationbar = () => {
   return (
@@ -12,28 +13,25 @@ const Navigationbar = () => {
             /></Navbar.Brand>
           </div>
           <Nav>
-            <Nav.Link>Home</Nav.Link>
-            <Nav.Link>Notivication</Nav.Link>
-            <Nav.Link>My Course</Nav.Link>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/input">Input Materi</Nav.Link>
             <NavDropdown
               id="nav-dropdown-dark-example"
               title="Lainnya"
               menuVariant="dark"
             >
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Profile Guru</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+                Log Out
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Container>
       </Navbar>
+
+      
     </div>
+    
   );
 };
 

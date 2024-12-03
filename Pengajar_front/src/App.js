@@ -1,21 +1,26 @@
 import './App.css';
 import Navigationbar from './components/Navigationbar';
-import Body from './components/Card';
-import "./style/LandingPage.css"
-import SideBar from './components/Sidebar';
-
+import "./style/LandingPage.css";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { Container } from 'react-bootstrap';
+import Input from './pages/Input';
+import Home from './pages/Home';
+import FootBar from './components/FootBar'; 
 
 function App() {
   return (
-    <div>
-      <div  className="myBG">
-      <Navigationbar />
-      <SideBar />
-      {/* <Body /> */}
-      </div>
-      </div>
-    
-   
+    <div className="app-container">
+      <Router>
+        <div className="myBG">
+          <Navigationbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/input" element={<Input />} />
+          </Routes>
+        </div>
+        <FootBar /> 
+      </Router>
+    </div>
   );
 }
 

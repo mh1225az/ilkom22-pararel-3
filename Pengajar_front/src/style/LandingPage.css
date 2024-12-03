@@ -1,5 +1,6 @@
 .myBG{
     height: 100vh;
+    /* background-color: black; */
     /* background: url("E:/CODING/percobaan3/src/assets/WALLPAPER/latar.jpg"); */
     background-size: cover;
 }
@@ -17,3 +18,9 @@
 .intro1{
     background-color: aliceblue;
 }
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Memastikan tinggi minimal layar penuh */
+  }
