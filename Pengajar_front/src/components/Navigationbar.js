@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav} from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
 const Navigationbar = () => {
@@ -15,16 +15,8 @@ const Navigationbar = () => {
           <Nav>
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/input">Input Materi</Nav.Link>
-            <NavDropdown
-              id="nav-dropdown-dark-example"
-              title="Lainnya"
-              menuVariant="dark"
-            >
-              <NavDropdown.Item href="#action/3.1">Profile Guru</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Log Out
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link as={Link} to="/profilepage">Profile</Nav.Link>
+            <Nav.Link as={Link} to="/logout">Log Out</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

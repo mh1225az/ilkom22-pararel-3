@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { Container } from 'react-bootstrap';
 import Input from './pages/Input';
 import Home from './pages/Home';
+import ProfilePage from './pages/ProfilePage';
 import FootBar from './components/FootBar'; 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/input" element={<Input />} />
+            <Route path="/ProfilePage" element={<ProfilePage />} />
           </Routes>
         </div>
       </Router>

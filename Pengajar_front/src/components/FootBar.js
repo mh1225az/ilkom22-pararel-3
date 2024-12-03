@@ -6,7 +6,7 @@ const FootBar = () => {
   return (
     <footer className="footer bg-dark text-white text-center py-3">
       <Container>
-        <p>© 2024 Your Company. All Rights Reserved.</p>
+        <p>© 2024 ilkom22-pararel-3. All Rights Reserved.</p>
       </Container>
     </footer>
   );
