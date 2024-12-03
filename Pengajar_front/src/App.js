@@ -18,8 +18,10 @@ function App() {
             <Route path="/input" element={<Input />} />
           </Routes>
         </div>
-        <FootBar /> 
       </Router>
+      <div className="app-container1">
+      <FootBar /> 
+      </div>
     </div>
   );
 }
