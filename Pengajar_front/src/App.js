@@ -7,6 +7,7 @@ import Input from './pages/Input';
 import Home from './pages/Home';
 import ProfilePage from './pages/ProfilePage';
 import FootBar from './components/FootBar'; 
+import Materi from './pages/DisplayMateri'; 
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/input" element={<Input />} />
             <Route path="/ProfilePage" element={<ProfilePage />} />
+            <Route path="/DisplayMateri" element={<Materi />} />
           </Routes>
         </div>
       </Router>

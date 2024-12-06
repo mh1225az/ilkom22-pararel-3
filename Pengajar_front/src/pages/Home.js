@@ -11,9 +11,10 @@ const Home = () => {
           <Card.Body>
             <Card.Title>React JS</Card.Title>
             <Card.Text>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, beatae!
+            React JS adalah pustaka JavaScript yang digunakan untuk membuat antarmuka pengguna (UI) yang interaktif dan dinamis untuk aplikasi web dan mobile
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button className="me-2" variant="primary">Masuk</Button>
+            <Button  variant="secondary">Edit</Button>
           </Card.Body>
         </Card>
       </Container>

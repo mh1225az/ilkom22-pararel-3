@@ -1,92 +1,156 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Input(){
-    return(
-        <div class="container">
-        <h2 class="alert alert-primary text-center mt-2">
-          Form Input Materi
-        </h2>
-        <form class="form-group">
-          <div class="row">
-            <div class=" mt-3">
-              <label for="JudulMateri">Judul Materi</label>
+export default function Input() {
+  const [formData, setFormData] = useState({
+    judulMateri: "",
+    tipeMateri: "",
+    deskripsi: "",
+    linkSoal: "",
+    tingkatan: "",
+    fileMateri: null,
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFormData({
+      ...formData,
+      fileMateri: file,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/DisplayMateri", { state: { formData } });
+  };
+
+  return (
+    <div className="container">
+      <h2 className="alert alert-primary text-center mt-2">Form Input Materi</h2>
+      <form className="form-group" onSubmit={handleSubmit}>
+        <div className="row">
+          <div className="mt-3">
+            <label htmlFor="judulMateri">Judul Materi</label>
+            <input
+              type="text"
+              className="form-control"
+              id="judulMateri"
+              placeholder="Masukkan Judul Materi"
+              name="judulMateri"
+              value={formData.judulMateri}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <div className="form-group mt-3">
+          <label htmlFor="tipeMateri">Tipe Materi</label>
+          <select
+            className="form-control"
+            id="tipeMateri"
+            name="tipeMateri"
+            value={formData.tipeMateri}
+            onChange={handleChange}
+          >
+            <option value="">Pilih Tipe Materi</option>
+            <option value="Video">1. Video</option>
+            <option value="Dokumen">2. Dokumen</option>
+            <option value="PowerPoint">3. PowerPoint</option>
+          </select>
+        </div>
+
+        <div className="form-group mt-3">
+          <label htmlFor="deskripsi">Deskripsi Materi</label>
+          <textarea
+            className="form-control"
+            id="deskripsi"
+            rows="4"
+            placeholder="Masukkan Deskripsi Materi"
+            name="deskripsi"
+            value={formData.deskripsi}
+            onChange={handleChange}
+          ></textarea>
+        </div>
+
+        <div className="mt-3">
+          <label htmlFor="linkSoal">Link Soal</label>
+          <input
+            type="text"
+            className="form-control"
+            id="linkSoal"
+            placeholder="Masukkan Link Soal"
+            name="linkSoal"
+            value={formData.linkSoal}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="row mt-3">
+          <div className="col-md-6">
+            <label>Tingkatan</label>
+            <div className="form-check">
               <input
-                type="text"
-                class="form-control"  
-                id="JudulMateri"
-                placeholder="Masukkan Judul Materi"
+                type="radio"
+                className="form-check-input"
+                id="SMP"
+                name="tingkatan"
+                value="SMP"
+                checked={formData.tingkatan === "SMP"}
+                onChange={handleChange}
               />
+              <label className="form-check-label" htmlFor="SMP">
+                SMP
+              </label>
             </div>
-          </div>
-
-          <div class="form-group mt-3">
-            <label for="jurusan">Tipe Materi</label>
-            <select class="form-control" id="Tmateri">
-              <option>1. Vidio</option>
-              <option>2. Document</option>
-              <option>3. Power Point</option>
-            </select>
-          </div>
-
-          <div class="form-group mt-3">
-            <label for="alasan">Deskripsi Materi</label>
-            <textarea
-              class="form-control"
-              id="Deskripsi"
-              rows="4"
-              placeholder="Masukkan Deskripsi Materi"
-            ></textarea>
-          </div>
-          <div class=" mt-3">
-              <label for="JudulMateri">Link Soal</label>
+            <div className="form-check">
               <input
-                type="text"
-                class="form-control"  
-                id="LinkSoal"
-                placeholder="Masukkan Link Soal"
+                type="radio"
+                className="form-check-input"
+                id="SMA"
+                name="tingkatan"
+                value="SMA"
+                checked={formData.tingkatan === "SMA"}
+                onChange={handleChange}
               />
-            </div>
-
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <label>Tingkatan</label>
-              <div class="form-check">
-                <input
-                  type="radio"
-                  class="form-check-input"
-                  id="SMP"
-                  name="SMP"
-                />
-                <label class="form-check-label" for="SMP">SMP</label>
-              </div>
-              <div class="form-check">
-                <input
-                  type="radio"
-                  class="form-check-input"
-                  id="SMA"
-                  name="jenis-kelamin"
-                />
-                <label class="form-check-label" for="SMA">SMA</label>
-              </div>
+              <label className="form-check-label" htmlFor="SMA">
+                SMA
+              </label>
             </div>
           </div>
+        </div>
 
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <label>Upload Materi:</label>
-              <input type="file" class="form-control-file" />
-              <small>Upload File dengan maksimal 2 MB</small>
-            </div>
+        <div className="row mt-3">
+          <div className="col-md-6">
+            <label htmlFor="fileMateri">Upload Materi:</label>
+            <input
+              type="file"
+              className="form-control-file"
+              id="fileMateri"
+              onChange={handleFileChange}
+            />
+            <small>Upload file dengan ukuran maksimal 2 MB.</small>
           </div>
+        </div>
 
-          <div class="mt-4">
-          <button type="submit" className="btn btn-primary me-3">SUBMIT</button>
-          <button type="reset" className="btn btn-danger">RESET</button>
-          </div>
-        </form>
-      </div>
-
-    );
-};
-
-export default Input;
+        <div className="mt-4">
+          <button type="submit" className="btn btn-primary me-3">
+            SUBMIT
+          </button>
+          <button type="reset" className="btn btn-danger">
+            RESET
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
