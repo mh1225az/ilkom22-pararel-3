@@ -14,6 +14,7 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 
+
 export default function ProfilePage() {
   return (
     <section style={{ backgroundColor: '#eee' }}>
@@ -110,7 +111,7 @@ export default function ProfilePage() {
               <MDBCol md="6">
                 <MDBCard className="mb-4 mb-md-0">
                   <MDBCardBody>
-                    <MDBCardText className="mb-4"><span className="text-primary font-italic me-1">assigment</span> Project Status</MDBCardText>
+                  <MDBCardText className="mb-4"><b>Project Status</b></MDBCardText>
                     <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>Web Design</MDBCardText>
                     <MDBProgress className="rounded">
                       <MDBProgressBar width={80} valuemin={0} valuemax={100} />
@@ -139,6 +140,19 @@ export default function ProfilePage() {
                 </MDBCard>
               </MDBCol>
 
+              <MDBCol md="6">
+                <MDBCard className="mb-3 mb-md-0">
+                  <MDBCardBody>
+                  <MDBCardText className="mb-4"><b>History</b></MDBCardText>
+                  <MDBRow>
+                      <MDBCol sm="9">
+                        <MDBCardText>1. React JS</MDBCardText>
+                      </MDBCol>
+                  </MDBRow>
+                    <hr />
+                  </MDBCardBody>
+                </MDBCard>
+              </MDBCol>
             </MDBRow>
           </MDBCol>
         </MDBRow>
