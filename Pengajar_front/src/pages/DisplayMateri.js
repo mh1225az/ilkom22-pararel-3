@@ -6,12 +6,12 @@ export default function DisplayMateri() {
   const { formData } = location.state || {};
 
   if (!formData) {
-    return <h3>No data available. Please submit the form first.</h3>;
+    return <h3>BELUM ADA DATA</h3>;
   }
 
   return (
     <div className="container mt-5">
-      <h2 className="alert alert-success text-center">Hasil Input Materi</h2>
+      <h2 className="alert alert-success text-center">MATERI</h2>
       <ul className="list-group">
       <li className="list-group-item">
           <strong>File Materi:</strong>{" "}

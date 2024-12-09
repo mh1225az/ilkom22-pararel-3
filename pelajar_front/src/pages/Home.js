@@ -17,7 +17,7 @@ const Home = () => {
             <Link to="/DisplayMateri">
               <Button className="me-2" variant="primary">Masuk</Button>
             </Link>
-            <Button variant="secondary">Edit</Button>
+            
           </Card.Body>
         </Card>
       </Container>

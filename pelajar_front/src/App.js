@@ -3,12 +3,11 @@ import Navigationbar from './components/Navigationbar';
 import "./style/LandingPage.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { Container } from 'react-bootstrap';
-import Input from './pages/Input';
+
 import Home from './pages/Home';
 import ProfilePage from './pages/ProfilePage';
 import FootBar from './components/FootBar'; 
-import Materi from './pages/DisplayMateri'; 
-import Edit from './pages/EditInput'; 
+
 
 function App() {
   return (
@@ -18,10 +17,9 @@ function App() {
           <Navigationbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/input" element={<Input />} />
-            <Route path="/input/Edit" element={<Edit />} />
+            
             <Route path="/ProfilePage" element={<ProfilePage />} />
-            <Route path="/DisplayMateri" element={<Materi />} />
+            
           </Routes>
         </div>
       </Router>
