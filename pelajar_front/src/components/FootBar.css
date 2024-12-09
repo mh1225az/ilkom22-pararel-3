@@ -1,0 +1,9 @@
+.footer {
+    background-color: #212529; /* Warna background footer */
+    color: #fff;              /* Warna teks */
+    position: relative;       /* Menghindari overlap */
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
