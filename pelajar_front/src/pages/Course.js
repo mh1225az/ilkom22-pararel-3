@@ -17,7 +17,6 @@ const Course = () => {
                 </Card.Text>
                 <Link to="/DisplayMateri">
                   <Button variant="primary" className='me-3'>Masuk</Button>
-                  
                 </Link>
               </Card.Body>
             </Card>
