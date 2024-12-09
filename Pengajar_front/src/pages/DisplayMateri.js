@@ -44,7 +44,6 @@ export default function DisplayMateri() {
         <li className="list-group-item">
           <strong>Tingkatan:</strong> {formData.tingkatan}
         </li>
-        
       </ul>
     </div>
   );

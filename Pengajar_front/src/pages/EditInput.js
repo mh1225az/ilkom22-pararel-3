@@ -7,6 +7,7 @@ export default function Input() {
     tipeMateri: "",
     deskripsi: "",
     linkSoal: "",
+    linkMateri:"",
     tingkatan: "",
     fileMateri: null,
   });
@@ -63,7 +64,7 @@ export default function Input() {
             onChange={handleChange}
           >
             <option value="">Pilih Tipe Materi</option>
-            <option value="Video">1. Video</option>
+            <option value="Video">1. Link</option>
             <option value="Dokumen">2. Dokumen</option>
             <option value="PowerPoint">3. PowerPoint</option>
           </select>
@@ -90,6 +91,18 @@ export default function Input() {
             id="linkSoal"
             placeholder="Masukkan Link Soal"
             name="linkSoal"
+            value={formData.linkSoal}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mt-3">
+          <label htmlFor="linkMateri">Link Materi</label>
+          <input
+            type="text"
+            className="form-control"
+            id="linkSoal"
+            placeholder="Masukkan Link Materi"
+            name="linkMateri"
             value={formData.linkSoal}
             onChange={handleChange}
           />
