@@ -16,7 +16,7 @@ const Navigationbar = () => {
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/input">Input Materi</Nav.Link>
             <Nav.Link as={Link} to="/profilepage">Profile</Nav.Link>
-            <Nav.Link as={Link} to="/logout">Log Out</Nav.Link>
+            <Nav.Link>Log Out</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
