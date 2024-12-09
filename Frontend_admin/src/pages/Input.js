@@ -146,11 +146,8 @@ export default function Input() {
           <button type="submit" className="btn btn-primary me-3">
             SUBMIT
           </button>
-          <button type="submit" className="btn btn-success me-3">
-            EDIT
-          </button>
-          <button type="submit" className="btn btn-danger me-3">
-            DELETE
+          <button type="reset" className="btn btn-danger">
+            RESET
           </button>
         </div>
       </form>
