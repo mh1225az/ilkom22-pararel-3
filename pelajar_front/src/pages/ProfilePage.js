@@ -30,8 +30,8 @@ export default function ProfilePage() {
                   className="rounded-circle"
                   style={{ width: '170px' }}
                   fluid />
-                <p className="text-muted mb-1">Full Stack Developer</p>
-                <p className="text-muted mb-4">Poasia, Kendari, Sulawesi tenggara</p>
+                <p className="text-muted mb-1">Pelajar SMA</p>
+                <p className="text-muted mb-4">Kendari, Sulawesi tenggara</p>
                 
               </MDBCardBody>
             </MDBCard>
