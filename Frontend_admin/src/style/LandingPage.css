@@ -1,0 +1,26 @@
+.myBG{
+    height: 100vh;
+    /* background-color: black; */
+    /* background: url("E:/CODING/percobaan3/src/assets/WALLPAPER/latar.jpg"); */
+    background-size: cover;
+}
+
+.intro {
+    /* background: tomato; */
+    height: 30%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    
+
+}
+
+.intro1{
+    background-color: aliceblue;
+}
+
+.app-container1 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}

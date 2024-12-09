@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import ProfilePage from './pages/ProfilePage';
 import FootBar from './components/FootBar'; 
 import Materi from './pages/DisplayMateri'; 
+import Edit from './pages/EditInput'; 
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/input" element={<Input />} />
+            <Route path="/input/Edit" element={<Edit />} />
             <Route path="/ProfilePage" element={<ProfilePage />} />
             <Route path="/DisplayMateri" element={<Materi />} />
           </Routes>
