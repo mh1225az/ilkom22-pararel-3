@@ -11,5 +11,5 @@ class Materi(db.Model):
     link_soal = db.Column(db.String(255), nullable=True)
     tingkatan = db.Column(db.String(50), nullable=False)
     file_materi = db.Column(db.String(255), nullable=True)
-    link_materi = db.Column(db.String(255), nullable=True) 
+    link_materi = db.Column(db.String(255), nullable=True)
     created_at = db.Column(db.DateTime, default=db.func.now())
