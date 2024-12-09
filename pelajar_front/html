@@ -4,48 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 </head>
 
 <body>
     <div class="container">
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">
-                <h2>CoursesCode</h2>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Notifications</a></li>
-                    <li><a href="#">My Courses</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
-            </nav>
+            <h2>Course2Code</h2>
+            <ul>
+                <li>Home</li>
+                <li>Notifications</li>
+                <li>My Courses</li>
+                <li>About Us</li>
+                <li>Help</li>
+            </ul>
         </aside>
 
-        <main class="content">
-            <div class="profile-header">
-                <div class="profile-info">
-                    <div class="avatar"></div>
-                    <div class="user-details">
-                        <h3>kanzakirin01</h3>
-                        <p>rinkanzaki03@gmail.com</p>
-                    </div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="profile-editor">
+                <h2>Edit Profile</h2>
+                <div class="profile-photo">
+                    <img src="https://via.placeholder.com/100" alt="Profile Photo">
+                    <button>Change profile photo</button>
                 </div>
-                <button id="edit-profile-btn" class="edit-profile">Edit Profil</button>
-            </div>
-
-            <div class="courses-section">
-                <h2>My Courses</h2>
-                <p id="courses-message">No Courses Has Been Used / Purchased</p>
-            </div>
+                <form class="profile-form">
+                    <label>Username</label>
+                    <input type="text" value="@kanzakirin01" readonly>
+                    <label>Email</label>
+                    <input type="email" value="rinkanzaki03@gmail.com" readonly>
+                    <label>Bio</label>
+                    <textarea rows="3">Mencoba tetap hidup dalam gempuran elit global</textarea>
+                    <button type="button">Save changes</button>
+                </form>
+            </section>
         </main>
     </div>
-
-    <script src="script.js"></script>
 </body>
 
 </html>
