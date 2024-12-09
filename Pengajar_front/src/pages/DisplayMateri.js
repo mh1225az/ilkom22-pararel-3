@@ -39,9 +39,11 @@ export default function DisplayMateri() {
           <strong>Link Soal:</strong> {formData.linkSoal}
         </li>
         <li className="list-group-item">
+          <strong>Link Materi:</strong> {formData.linkMateri}
+        </li>
+        <li className="list-group-item">
           <strong>Tingkatan:</strong> {formData.tingkatan}
         </li>
-        
       </ul>
     </div>
   );

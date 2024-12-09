@@ -28,6 +28,7 @@ def add_materi():
     deskripsi = request.form.get('deskripsi')
     link_soal = request.form.get('linkSoal')
     tingkatan = request.form.get('tingkatan')
+    link_materi = request.form.get('linkMateri') 
 
     # Proses file yang diunggah
     file_materi = None
@@ -44,7 +45,8 @@ def add_materi():
         deskripsi=deskripsi,
         link_soal=link_soal,
         tingkatan=tingkatan,
-        file_materi=file_materi
+        file_materi=file_materi,
+        link_materi=link_materi
     )
     db.session.add(new_materi)
     db.session.commit()
