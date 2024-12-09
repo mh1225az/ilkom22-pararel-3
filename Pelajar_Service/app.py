@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from models import db
 from routes import student_bp, class_bp  # Mengimpor blueprint dari routes
 
@@ -13,9 +13,13 @@ app.register_blueprint(student_bp)
 app.register_blueprint(class_bp)
 
 # Rute dasar (/) untuk menampilkan pesan selamat datang
-@app.route('/')
+@app.route('/pelajar')
 def home():
-    return "    Huuuuuaaaaaaahhhh   "
+    return "Hollaa Pelajar"
+
+@app.route('/kelas')
+def kelas():
+    return jsonify({"message": "Use /classes endpoint for class operations."}), 200
 
 # Membuat database jika belum ada
 with app.app_context():
