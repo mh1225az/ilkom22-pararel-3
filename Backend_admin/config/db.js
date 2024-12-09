@@ -1,19 +1,18 @@
-const mongoose = require('mongoose');
+const mysql = require('mysql2');
 
-const connectDB = async () => {
-    try {
-        const conn = await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true,    // optional for backward compatibility
-            useFindAndModify: false  // to avoid deprecation warning
-        });
+const connection = mysql.createConnection({
+  host: 'localhost', // Gunakan localhost atau alamat IP database
+  user: 'root',      // Ganti dengan user MySQL Anda
+  password: 'password', // Ganti dengan password MySQL Anda
+  database: 'your_database_name' // Ganti dengan nama database Anda
+});
 
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
-    } catch (error) {
-        console.error(`Error: ${error.message}`);
-        process.exit(1);  // Exit process with failure
-    }
-};
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL');
+});
 
-module.exports = connectDB;
+module.exports = connection;

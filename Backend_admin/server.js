@@ -1,37 +1,23 @@
 const express = require('express');
-const dotenv = require('dotenv');
 const cors = require('cors');
-const morgan = require('morgan');
-const connectDB = require('./config/db');
+const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
+const courseRouter = require('./routers/course_router');
+const authRouter = require('./routers/auth_router');
 
-// Load environment variables from .env file
 dotenv.config();
-
-// Connect to MongoDB database
-connectDB();
-
 const app = express();
 
-// Middleware setup
-app.use(express.json());  // for parsing application/json
-app.use(cors());          // for enabling Cross-Origin Request
-app.use(morgan('dev'));   // HTTP request logging
+// Middleware
+app.use(cors());
+app.use(bodyParser.json()); // Parse JSON request body
 
-// Routes setup
-app.use('/api/courses', require('./routes/course.router'));
-app.use('/api/materials', require('./routes/material.router'));
-app.use('/api/profile', require('./routes/profile.router'));
+// Routes
+app.use('/api/courses', courseRouter);
+app.use('/api/auth', authRouter);
 
-// Error handling middleware (catch any unhandled errors)
-app.use((err, req, res, next) => {
-    res.status(500).json({
-        success: false,
-        error: err.message || 'Server Error'
-    });
-});
-
-// Start server
-const PORT = process.env.PORT || 5000;
+// Menjalankan server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server berjalan di port ${PORT}`);
 });
