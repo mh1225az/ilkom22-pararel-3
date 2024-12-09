@@ -9,6 +9,7 @@ import ProfilePage from './pages/ProfilePage';
 import FootBar from './components/FootBar'; 
 import Materi from './pages/DisplayMateri'; 
 import Edit from './pages/EditInput'; 
+import Course from './pages/Course';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Navigationbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/course" element={<Course />} />
             <Route path="/input" element={<Input />} />
             <Route path="/input/Edit" element={<Edit />} />
             <Route path="/ProfilePage" element={<ProfilePage />} />

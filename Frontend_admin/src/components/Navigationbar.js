@@ -14,7 +14,7 @@ const Navigationbar = () => {
           </div>
           <Nav>
             <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/">My Course</Nav.Link>
+            <Nav.Link as={Link} to="/course">My Course</Nav.Link>
             <Nav.Link as={Link} to="/input">Input Materi</Nav.Link>
             <Nav.Link as={Link} to="/profilepage">Profile</Nav.Link>
             <Nav.Link>Log Out</Nav.Link>
