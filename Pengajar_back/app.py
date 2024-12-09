@@ -6,7 +6,7 @@ from routes import register_blueprints  # Mengimpor fungsi untuk mendaftarkan Bl
 app = Flask(__name__)
 
 # Konfigurasi database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///MATERI.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Inisialisasi database
