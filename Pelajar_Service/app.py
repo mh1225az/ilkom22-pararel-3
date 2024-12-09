@@ -15,7 +15,7 @@ app.register_blueprint(class_bp)
 # Rute dasar (/) untuk menampilkan pesan selamat datang
 @app.route('/')
 def home():
-    return "Welcome to the Student and Class Service API!"
+    return "    Huuuuuaaaaaaahhhh   "
 
 # Membuat database jika belum ada
 with app.app_context():
