@@ -6,7 +6,7 @@ from models import db, Materi
 app = Flask(__name__)
 
 # Konfigurasi database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # Gunakan SQLite
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///MATERI.db'  # Gunakan SQLite
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Konfigurasi folder upload
