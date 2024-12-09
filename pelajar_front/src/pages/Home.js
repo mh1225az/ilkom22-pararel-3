@@ -6,7 +6,7 @@ const Home = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/classes') // Pastikan URL sesuai dengan backend
+    fetch('/classes') // Pastikan URL sesuai dengan backend
       .then(response => response.json())
       .then(data => setCourses(data))
       .catch(err => console.error('Error fetching classes:', err));

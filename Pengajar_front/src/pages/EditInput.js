@@ -1,18 +1,26 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Input() {
+export default function Edit() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
+    id: null,
     judulMateri: "",
     tipeMateri: "",
     deskripsi: "",
     linkSoal: "",
-    linkMateri:"",
+    linkMateri: "",
     tingkatan: "",
     fileMateri: null,
   });
 
-  const navigate = useNavigate();
+ 
+  useEffect(() => {
+    if (location.state?.formData) {
+      setFormData(location.state.formData); 
+    }
+  }, [location.state]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +45,7 @@ export default function Input() {
 
   return (
     <div className="container">
-      <h2 className="alert alert-primary text-center mt-2">Form Input Materi</h2>
+      <h2 className="alert alert-warning text-center mt-2">Edit Materi</h2>
       <form className="form-group" onSubmit={handleSubmit}>
         <div className="row">
           <div className="mt-3">
@@ -100,10 +108,10 @@ export default function Input() {
           <input
             type="text"
             className="form-control"
-            id="linkSoal"
+            id="linkMateri"
             placeholder="Masukkan Link Materi"
             name="linkMateri"
-            value={formData.linkSoal}
+            value={formData.linkMateri}
             onChange={handleChange}
           />
         </div>
@@ -144,7 +152,7 @@ export default function Input() {
 
         <div className="row mt-3">
           <div className="col-md-6">
-            <label htmlFor="fileMateri">Upload Materi:</label>
+            <label htmlFor="fileMateri">Upload Materi (Opsional):</label>
             <input
               type="file"
               className="form-control-file"
@@ -156,14 +164,15 @@ export default function Input() {
         </div>
 
         <div className="mt-4">
-          <button type="submit" className="btn btn-primary me-3">
-            SUBMIT
-          </button>
           <button type="submit" className="btn btn-success me-3">
-            EDIT
+            UPDATE
           </button>
-          <button type="submit" className="btn btn-danger me-3">
-            DELETE
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => navigate(-1)} // Kembali ke halaman sebelumnya
+          >
+            CANCEL
           </button>
         </div>
       </form>
