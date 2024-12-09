@@ -1,17 +1,6 @@
 import os
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask
-from routes.materi_routes import materi_routes
-
-app = Flask(__name__)
-
-# Registrasi blueprint
-app.register_blueprint(materi_routes)
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
 app = Flask(__name__)
 
 # Konfigurasi database (gunakan SQLite untuk kemudahan)
