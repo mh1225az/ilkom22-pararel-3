@@ -1,6 +1,8 @@
 from flask import Blueprint, request, jsonify
 from models import db, Materi
 import os
+import threading
+
 
 # Inisialisasi Blueprint
 materi_routes = Blueprint('materi_routes', __name__)
@@ -9,7 +11,13 @@ materi_routes = Blueprint('materi_routes', __name__)
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Route untuk menambahkan data materi
+def process_file(file, file_path):
+    # Simulasi proses berat, seperti validasi atau manipulasi file
+    import time
+    time.sleep(5)  # Simulasi tugas berat
+    # File sudah disimpan, lakukan validasi atau manipulasi di sini jika diperlukan
+    print(f"File {file.filename} diproses dan disimpan ke {file_path}")
+
 @materi_routes.route('/', methods=['POST'])
 def add_materi():
     judul_materi = request.form.get('judulMateri')
@@ -26,6 +34,9 @@ def add_materi():
         if file:
             file_materi = os.path.join(UPLOAD_FOLDER, file.filename)
             file.save(file_materi)
+            # Jalankan proses berat dalam thread terpisah
+            thread = threading.Thread(target=process_file, args=(file, file_materi))
+            thread.start()
 
     # Simpan ke database
     materi = Materi(
@@ -40,7 +51,8 @@ def add_materi():
     db.session.add(materi)
     db.session.commit()
 
-    return jsonify({"message": "Data materi berhasil disimpan!"}), 201
+    return jsonify({"message": "Data materi berhasil disimpan! Proses file sedang berjalan."}), 201
+
 
 # Route untuk mendapatkan semua data materi
 @materi_routes.route('/', methods=['GET'])
