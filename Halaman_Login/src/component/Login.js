@@ -9,13 +9,13 @@ const Login = () => {
     const handleLogin = () => {
         if (username === "pelajar" && password === "1234") {
             setError("");
-            window.location.href = ""; // Ganti dengan URL project React baru untuk pelajar
+            window.location.href = ""; 
         } else if (username === "pengajar" && password === "1234") {
             setError("");
-            window.location.href = ""; // Ganti dengan URL project React baru untuk pengajar
+            window.location.href = ""; 
         } else if (username === "admin" && password === "1234") {
             setError("");
-            window.location.href = ""; // Ganti dengan URL project React baru untuk admin
+            window.location.href = ""; 
         } else {
             setError("Username atau password salah!");
         }
